@@ -12,4 +12,4 @@ Features
  
  ~ 3D visualisation of solar supply at the suburb level
 
-https://github.com/jnmaloney/SolarSupplyAu/LICENSE#1
+https://github.com/jnmaloney/SolarSupplyAu/blob/master/main.cpp#1

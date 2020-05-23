@@ -1,9 +1,74 @@
-
 <html>
-  
-  <a href="https://jnmaloney.github.io/OpenSolar/home.html">Visit version (V0) - https://jnmaloney.github.io/OpenSolar/home.html</a><br />
-  <a href="https://jnmaloney.github.io/SolarSupply/SolarSupplyAll/out/index%20(dev).html">Visit version (V1) - https://jnmaloney.github.io/SolarSupply/SolarSupplyAll/out/index%20(dev).html</a><br />
-  <a href="https://jnmaloney.github.io/OpenSolarClient/">Visit version (V2) - https://jnmaloney.github.io/OpenSolarClient/</a><br />
-  <a href="https://jnmaloney.github.io/SolarSupply/SolarSupply/out/index%20(dev).html">Visit version (V3) - https://jnmaloney.github.io/SolarSupply/SolarSupply/out/index%20(dev).html</a><br />
-  
+
+<head>
+<link rel="stylesheet" type="text/css"
+href="home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body {
+    font-family: arial;
+    margin: 0;
+    padding: none;
+  }
+
+  .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+  div.emscripten { text-align: center; }
+  div.emscripten_border { border: none; }
+  /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+  canvas.emscripten { border: 0px none; background-color: black; }
+</style>
+</head>
+
+<body>
+ <h1>Visualising Daily Solar Supply</h1>
+ <p>Project Homepage</p>
+ <div class="row">
+  <div class="column">
+  <h2>SolarSupplyAu</h2>
+  <p>A live example of data visualisation</p>
+  <div class="emscripten_border">
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+  </div>
+  </div>
+  <div class="column">
+  <h3>Reports and Documents</h3>
+  <i class="fa fa-file-o"></i><a href="https://github.com/jnmaloney/Report_VisualisingDailySolar/blob/master/Proposal/output/proposal3.pdf">Project Proposal (submitted</a>)<br />
+  <i class="fa fa-file-o"></i>Annotated Bibliography (submitted)<br />
+  <i class="fa fa-file-o"></i>Presentation Slides (submitted)<br />    
+  <i class="fa fa-file-o"></i><a href="https://github.com/jnmaloney/Report_VisualisingDailySolar/blob/master/Report/seminar/seminar.pdf">Conference Paper (submitted)</a><br />  
+  <i class="fa fa-file-o"></i>Conference Paper (updated)<br />  
+  <i class="fa fa-file-o"></i>Thesis Paper (draft)<br />    
+  </div>
+ </div> 
+ (c) 2020
+ <script type='text/javascript'>
+	function goFullScreen(){
+	    Module.requestFullscreen(false, true);
+	}
+
+      var Module = {
+        preRun: [],
+        postRun: [],
+        print: (function() {})(),
+        printErr: function(text){},
+        canvas: (function() {
+          var canvas = document.getElementById('canvas');
+
+          // As a default initial behavior, pop up an alert when webgl context is lost. To make your
+          // application robust, you may want to override this behavior before shipping!
+          // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+          canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
+
+          return canvas;
+        })(),
+        setStatus: function(text) {},
+        totalDependencies: 0,
+        monitorRunDependencies: function(left) {
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+        }
+      };
+    </script>
+ <script async type="text/javascript" src="provis.js"></script>
+
+</body>
 </html>

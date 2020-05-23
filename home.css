@@ -1,0 +1,17 @@
+body
+{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #444444;
+    font-size: 12pt;
+    background-color: #FAFAFA;
+}
+body {margin:38px;padding:0}
+
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}

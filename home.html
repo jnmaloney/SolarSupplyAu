@@ -1,47 +1,34 @@
-<html>
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>OpenSolar</title>
+    <style>
+      body {
+        font-family: arial;
+        margin: 0;
+        padding: none;
+      }
 
-<head>
-<link rel="stylesheet" type="text/css"
-href="home.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  body {
-    font-family: arial;
-    margin: 0;
-    padding: none;
-  }
+      .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+      div.emscripten { text-align: center; }
+      div.emscripten_border { border: none; }
+      /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+      canvas.emscripten { border: 0px none; background-color: black; }
+    </style>
+  </head>
 
-  .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
-  div.emscripten { text-align: center; }
-  div.emscripten_border { border: none; }
-  /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
-  canvas.emscripten { border: 0px none; background-color: black; }
-</style>
-</head>
+  <body>
+    <center>
+      <h1>Visualising Daily Solar Supply</h1>
+      <h4>Map and solar irradiance data</h4>
 
-<body>
- <h1>Visualising Daily Solar Supply</h1>
- <p>Project Homepage</p>
- <div class="row">
-  <div class="column">
-  <h2>SolarSupplyAu</h2>
-  <p>A live example of data visualisation</p>
-  <div class="emscripten_border">
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-  </div>
-  </div>
-  <div class="column">
-  <h3>Reports and Documents</h3>
-  <i class="fa fa-file-o"></i><a href="https://github.com/jnmaloney/Report_VisualisingDailySolar/blob/master/Proposal/output/proposal3.pdf">Project Proposal (submitted</a>)<br />
-  <i class="fa fa-file-o"></i>Annotated Bibliography (submitted)<br />
-  <i class="fa fa-file-o"></i>Presentation Slides (submitted)<br />    
-  <i class="fa fa-file-o"></i><a href="https://github.com/jnmaloney/Report_VisualisingDailySolar/blob/master/Report/seminar/seminar.pdf">Conference Paper (submitted)</a><br />  
-  <i class="fa fa-file-o"></i>Conference Paper (updated)<br />  
-  <i class="fa fa-file-o"></i>Thesis Paper (draft)<br />    
-  </div>
- </div> 
- (c) 2020
- <script type='text/javascript'>
+      <div class="emscripten_border">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+      </div>
+    </center>
+    <script type='text/javascript'>
 	function goFullScreen(){
 	    Module.requestFullscreen(false, true);
 	}
@@ -68,7 +55,43 @@ href="home.css">
         }
       };
     </script>
- <script async type="text/javascript" src="provis.js"></script>
+    <script async type="text/javascript" src="provis.js"></script>
+    <script>
+      var loadTextFile = function(filename, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', filename, true);
+      xhr.responseType = 'blob';
 
-</body>
+      xhr.onload = function(e) {
+          if (this.status == 200) {
+            var blob = new Blob([this.response], {type: 'text/plain'});
+            var fileReader = new FileReader();
+            fileReader.readAsText(blob);
+            fileReader.onload = function(event) {
+              callback(fileReader.result);
+            };
+          }
+        };
+        xhr.send();
+      };
+
+      var z = -1;
+      
+      var postcode_y = function(v) {
+        console.log("Y: " + v);
+        z = v;
+      }
+
+      var postcode_x = function(pc) {
+        console.log("X: " + pc);
+        var fname = "dailydata/" + pc + ".txt";
+        loadTextFile(fname, postcode_y);
+      }
+
+      var postcode_z = function(pc) {
+        return z;
+      }
+
+    </script>    
+  </body>
 </html>

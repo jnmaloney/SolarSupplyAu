@@ -75,8 +75,8 @@
         xhr.send();
       };
 
-      var z = -1;
-      
+      var z = -1.0;
+
       var postcode_y = function(v) {
         console.log("Y: " + v);
         z = v;
@@ -91,6 +91,13 @@
       var postcode_z = function(pc) {
         return z;
       }
+
+      var power_value;
+      var g_data = [];
+      var setStatePower = function(power) { g_data = power.split("\n"); };
+      var setTotalPower = function(power) { power_value = power; }
+      loadTextFile('data_total.txt', setTotalPower);
+      loadTextFile('data_state.txt', setStatePower);
 
     </script>    
   </body>

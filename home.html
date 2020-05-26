@@ -100,8 +100,8 @@
       loadTextFile('data_total.txt', setTotalPower);
       loadTextFile('data_state.txt', setStatePower);
       var getStateData = function(i) {
-        if (g_data.length == 9) return g_data[i];
-        return 1.0;
+        if (g_data.length < i) return -1.0;
+        return g_data[i];        
       }
 
     </script>    

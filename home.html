@@ -86,7 +86,9 @@
 
       var postcode_x = function(pc) {
         g_pc_tobe = pc;
-        var fname = "dailydata/" + pc + ".txt";
+        pcname = pc + ".txt"
+        if (pcname.length < 8) pcname = "0" + pcname;
+        var fname = "dailydata/" + pcname;
         loadTextFile(fname, postcode_y);
       }
 

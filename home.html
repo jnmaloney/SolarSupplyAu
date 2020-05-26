@@ -76,20 +76,23 @@
       };
 
       var z = -1.0;
+      var g_pc = "";
+      var g_pc_tobe = "";
 
       var postcode_y = function(v) {
-        console.log("Y: " + v);
         z = v;
+        g_pc = g_pc_tobe;
       }
 
       var postcode_x = function(pc) {
-        console.log("X: " + pc);
+        g_pc_tobe = pc;
         var fname = "dailydata/" + pc + ".txt";
         loadTextFile(fname, postcode_y);
       }
 
       var postcode_z = function(pc) {
-        return z;
+        if (pc == g_pc) return z;
+        return -1.0;
       }
 
 

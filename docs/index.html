@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+
+  <h1>SolarSupplyAu</h1>
+  <h3>Visualising daily solar supply</h3>
+  
+  <h2>Introduction</h2>
+  <p>SolarSupplyAu calculates the estimated solar supply for almost all postcodes in Australia each day using the most up-to-date installation and weather data.</p>
+  
+  <h2>Modelling Solar Supply</h2>
+  <p>Actual performance data has been analysed from 2,525 different systems Australia-wide. The performace of these systems was compared to the daily weather conditions and combined with machine learning techniques to extrapolate an average performance function. This function can be applied to all installed sytems, not just the ones which provide daily readings.</p>
+
+  <h2>Applying the Model</h2>
+  <p>With up-to-date information on the solar capacity in each postcode, we can determine the total daily solar supply from the previous day's weather reports.</p>
+
+  <h2>Visualising Daily Solar Supply</h2>
+  <p>Web mapping services allow us to show detailed 3D visualisation of any part of the country down to the suburb or street level. We can visualise the percentage of residences with solar panels installed, as well as show the daily solar supply by suburb.</p>
+  
+  <!-- End site or application -->
+  <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
